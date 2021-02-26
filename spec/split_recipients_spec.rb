@@ -8,4 +8,12 @@ describe SplitRecipients, "#call" do
 
     expect(result).to eq(["one@example.com", "two@example.com"])
   end
+
+  it "splits on newlines" do
+    recipients = "one@example.com\ntwo@example.com"
+
+    result = SplitRecipients.new(recipients).call
+
+    expect(result).to eq(["one@example.com", "two@example.com"])
+  end
 end

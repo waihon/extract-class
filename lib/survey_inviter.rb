@@ -58,6 +58,6 @@ class SurveyInviter
   end
 
   def recipient_list
-    @recipient_list ||= RecipientList.new(@recipients).split
+    @recipient_list ||= SplitRecipients.new(@recipients).call
   end
 end

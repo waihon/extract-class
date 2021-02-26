@@ -24,4 +24,12 @@ describe SplitRecipients, "#call" do
 
     expect(result).to eq(["one@example.com", "two@example.com"])
   end
+
+  it "strips spaces" do
+    recipients = "  one@example.com;  two@example.com  "
+
+    result = SplitRecipients.new(recipients).call
+
+    expect(result).to eq(["one@example.com", "two@example.com"])
+  end
 end
